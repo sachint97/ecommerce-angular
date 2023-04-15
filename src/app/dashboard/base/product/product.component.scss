@@ -1,0 +1,7 @@
+@media (max-width: 576px) {
+    :host ::ng-deep{
+    .p-divider-vertical.ver-div {
+        display:none;
+    }
+}
+}

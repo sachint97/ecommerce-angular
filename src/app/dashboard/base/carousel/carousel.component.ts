@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../../../../core/services/app.service';
 import { Product } from '../../../../core/models/model';
+import { environment } from 'src/environments/environment.development';
 
 
 
@@ -15,7 +16,9 @@ export class CarouselComponent {
 
 	responsiveOptions;
 
+  mediaUrl:string
 	constructor(private appService: AppService) {
+    this.mediaUrl=environment.MEDIA_API_URL
 		this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -36,9 +39,16 @@ export class CarouselComponent {
 	}
 
   ngOnInit() {
-		this.appService.get("assets/products.json").subscribe(products => {
-			this.products = products.data.slice(0,5);
-      console.log(products.data.slice(0,5))
+		this.appService.get("inventory/products/").subscribe(products => {
+			this.products = products.data.results.slice(0,5);
 		});
+    }
+    getMediaUrl(product:any){
+      console.log(product?.media[0]!=undefined);
+      if (product.media[0] !=undefined){
+        return this.mediaUrl+ product.media[0].img_url;
+      }else{
+        return this.mediaUrl+'/images/default.png'
+      }
     }
 }

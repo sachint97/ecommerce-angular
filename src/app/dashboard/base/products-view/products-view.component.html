@@ -35,19 +35,19 @@
                     <div class="product-grid-item-top">
                         <div>
                             <i class="pi pi-tag product-category-icon"></i>
-                            <span class="product-category">{{product.category}}</span>
+                            <span class="product-category">{{product.product.category.name}}</span>
                         </div>
                         <!-- <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
                     </div>
                     <div class="product-grid-item-content">
-                        <img src="assets{{product.image}}" [alt]="product.name"/>
-                        <div class="product-name">{{product.name}}</div>
-                        <div class="product-description">{{product.description}}</div>
-                        <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
+                        <img src="{{getMediaUrl(product)}}" alt="Unavilable" />
+                        <a class="product-name" routerLink='' (click)="productPage(product.product.web_id)">{{product.product.name}}</a>
+                        <div class="product-description">{{product.product.description}}</div>
+                        <p-rating [ngModel]="product.product?.rating" [readonly]="true" [cancel]="false"></p-rating>
                     </div>
                     <div class="product-grid-item-bottom">
-                        <span class="product-price">{{product.price | currency:'USD'}}</span>
-                        <p-button icon="pi pi-cart-plus" [disabled]="product.countInStock===0"></p-button>
+                        <span class="product-price">{{product.sale_price | currency:'USD'}}</span>
+                        <p-button icon="pi pi-cart-plus" [disabled]="product?.units===0"></p-button>
                     </div>
                 </div>
             </div>
