@@ -19,6 +19,9 @@ import {GalleriaModule} from 'primeng/galleria';
 import { PhotoService } from 'src/core/services/photo.service';
 import { DividerModule } from 'primeng/divider';
 import {TableModule} from 'primeng/table';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CartComponent } from './base/cart/cart.component';
+import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
 
 @NgModule({
@@ -27,6 +30,7 @@ import {TableModule} from 'primeng/table';
     CarouselComponent,
     ProductsViewComponent,
     ProductComponent,
+    CartComponent,
 
   ],
   imports: [
@@ -43,7 +47,9 @@ import {TableModule} from 'primeng/table';
     FormsModule,
     GalleriaModule,
     DividerModule,
-    TableModule
+    TableModule,
+    InputNumberModule,
+    VirtualScrollerModule
     
   ],
   providers:[HttpClientModule,AppService,PhotoService]

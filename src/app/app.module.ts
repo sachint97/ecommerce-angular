@@ -14,6 +14,9 @@ import { RatingModule } from 'primeng/rating';
 import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { ToolbarModule } from 'primeng/toolbar';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +35,11 @@ import { FormsModule } from '@angular/forms';
     DataViewModule,
     DropdownModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    ToolbarModule,
+    MegaMenuModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

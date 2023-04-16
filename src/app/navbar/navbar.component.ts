@@ -9,6 +9,17 @@ import { MenuItem } from 'primeng/api';
 export class NavbarComponent implements OnInit {
   items: MenuItem[];
   ngOnInit() {
-    
+    this.items = [
+      {
+          label: 'Login',
+          icon: 'pi pi-fw pi-user',
+       },
+      {
+        label: 'cart',
+        icon: 'pi pi-fw pi-shopping-cart',
+        routerLink: ['/cart']
+      }
+    ];
+
   }
-  }
+}

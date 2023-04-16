@@ -1,11 +1,17 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="start"><h2>ProShop</h2></ng-template>
-    <span class="p-input-icon-right w-6 ">
-        <i class="pi pi-search"></i>
-        <input class="w-12" type="text" pInputText placeholder="Search">
-    </span>
-    <div class="flex justify-content-end flex-grow-1">
-        <button class="mr-2" pButton label="Logout" icon="pi pi-power-off"></button>
-        <button pButton label="Cart" icon="pi pi-shopping-cart"></button>
-    </div>
-</p-menubar>
+<!-- 
+<div class="card">
+    <p-megaMenu [model]="items"></p-megaMenu>
+</div> -->
+
+
+<div class="card">
+    <p-menubar [model]="items" styleClass="flex">
+        <p-menuitem routerLink="/about" label="About"></p-menuitem>
+        <ng-template pTemplate="start">
+            <a href="/" style="text-decoration: none;color: inherit;"><h2 >Ecommerce</h2></a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search" class="w-full" />
+        </ng-template>
+    </p-menubar>
+</div>

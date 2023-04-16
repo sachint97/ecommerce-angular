@@ -44,7 +44,6 @@ export class CarouselComponent {
 		});
     }
     getMediaUrl(product:any){
-      console.log(product?.media[0]!=undefined);
       if (product.media[0] !=undefined){
         return this.mediaUrl+ product.media[0].img_url;
       }else{

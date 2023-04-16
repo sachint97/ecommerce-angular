@@ -28,13 +28,11 @@ export class ProductsViewComponent {
 
     constructor(private appServices: AppService,private router:Router) { 
       this.mediaUrl=environment.MEDIA_API_URL
-      console.log(this.mediaUrl)
     }
 
     ngOnInit() {
         this.appServices.get("inventory/products/").subscribe(
           res =>{
-            console.log(res.data.results)
             this.products = res.data.results
           }
         );
@@ -62,11 +60,11 @@ export class ProductsViewComponent {
     }
 
     getMediaUrl(product:any){
-      console.log(product?.media[0]!=undefined);
       if (product.media[0] !=undefined){
         return this.mediaUrl+ product.media[0].img_url;
       }else{
         return this.mediaUrl+'/images/default.png'
       }
     }
+    
 }

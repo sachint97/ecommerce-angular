@@ -30,10 +30,16 @@
     <div class="col-12 md:col-3 lg:col-3 text-center">
         <h3>Price : {{product?.sale_price | currency:'USD'}}</h3>
         <p-divider></p-divider>
-        <h3>Status : {{product.units > 0 ? 'Instock':'Out of stock'}}</h3>
+        <h3>Status : {{product['units'] > 0 ? 'Instock':'Out of stock'}}</h3>
         <p-divider></p-divider> 
-        <p-button label="Add to cart"></p-button>
+        <p-inputNumber *ngIf="product['units']>0" class="qty" [(ngModel)]="qty" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1"
+    decrementButtonClass="p-button-primary p-button-rounded" incrementButtonClass="p-button-primary p-button-rounded" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="1"
+    [max]="getMaxUnits()" ></p-inputNumber>
+        <p-divider *ngIf="product.units>0"></p-divider>
+        <p-button label="Add to cart" [disabled]="product?.units===0" (click)="addProduct()"></p-button>
          
     </div>
 </div>
 <p-divider></p-divider> 
+
+

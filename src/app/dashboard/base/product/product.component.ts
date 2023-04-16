@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   mediaUrl:string;
   images: Media[];
   responsiveOptions: any[];
+  qty:number=1;
   constructor(private route: ActivatedRoute,private appService:AppService,private photoService: PhotoService) {
     this.mediaUrl=environment.MEDIA_API_URL
    }
@@ -40,23 +41,28 @@ export class ProductComponent implements OnInit {
       this.id = params.get('web_id')!;
     });
     this.appService.get('inventory/product/'+this.id+'/').subscribe(resp=>{
-      console.log(resp)
       this.product=resp.data;
       this.images=this.product.media!
       if (this.images.length == 0){
         this.images.push({img_url:'/images/default.png'})
       }
-      console.log(this.images)
     })
     
   }
   getMediaUrl(product:any){
-    console.log(product?.media[0]!=undefined);
     if (product.media[0] !=undefined){
       return this.mediaUrl+ product.media[0].img_url;
     }else{
       return this.mediaUrl+'/images/default.png'
     }
+  }
+  getMaxUnits(){
+    return Number(this.product.units);
+  }
+  addProduct(){
+    console.log(this.qty)
+    console.log(this.product.id)
+    console.log(this.id)
   }
 }
 
