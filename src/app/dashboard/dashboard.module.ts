@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { BaseComponent } from './base/base.component';
-import { CarouselComponent } from './base/carousel/carousel.component';
+import { CarouselComponent } from './base/products-view/carousel/carousel.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,8 @@ import {TableModule} from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CartComponent } from './base/cart/cart.component';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { NavbarComponent } from './base/navbar/navbar.component';
+import { MenubarModule } from 'primeng/menubar';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     ProductsViewComponent,
     ProductComponent,
     CartComponent,
+    NavbarComponent
+
 
   ],
   imports: [
@@ -49,7 +53,8 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     DividerModule,
     TableModule,
     InputNumberModule,
-    VirtualScrollerModule
+    VirtualScrollerModule,
+    MenubarModule
     
   ],
   providers:[HttpClientModule,AppService,PhotoService]

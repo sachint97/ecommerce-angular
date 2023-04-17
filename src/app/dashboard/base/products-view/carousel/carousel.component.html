@@ -9,12 +9,12 @@
                     <img src="{{getMediaUrl(product)}}" alt="Unavilable" class="product-image"/>
                 </div>
                 <div>
-                    <h4 class="mb-1">{{product.product.name}}</h4>
+                    <a class="product-name" routerLink='' (click)="productPage(product.product.web_id)">{{product.product.name}}</a>
                     <br>
                     <h4 class="mt-0">{{product.sale_price|currency:'USD'}}</h4>
                     <!-- <span >{{product.inventoryStatus}}</span> -->
                     <div class="cart-buttons mt-2 flex flex-column align-items-center  w-12">
-                        <button pButton icon="pi pi-cart-plus" label="Add to cart"></button>
+                        <button pButton icon="pi pi-cart-plus" label="Add to cart" (click)="addToCart(product)"></button>
                         <button class="mt-2" pButton icon="pi pi-money-bill" label="Buy now"></button>
                     </div>
                 </div>

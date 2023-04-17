@@ -43,7 +43,7 @@ export class ProductComponent implements OnInit {
     this.appService.get('inventory/product/'+this.id+'/').subscribe(resp=>{
       this.product=resp.data;
       this.images=this.product.media!
-      if (this.images.length == 0){
+      if (this.images?.length == 0){
         this.images.push({img_url:'/images/default.png'})
       }
     })

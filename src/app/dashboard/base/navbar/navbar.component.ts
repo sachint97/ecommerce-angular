@@ -7,12 +7,13 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  items: MenuItem[];
+  navItems! : MenuItem[];
   ngOnInit() {
-    this.items = [
+    this.navItems = [
       {
           label: 'Login',
           icon: 'pi pi-fw pi-user',
+          routerLink: ['/user/login']
        },
       {
         label: 'cart',

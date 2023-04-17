@@ -1,0 +1,26 @@
+@import "../../../styles.scss";
+.container{
+    width:100vw;
+    height:100vh;
+    background-image: url('../../../assets/images/pattern.jpg');
+}
+.login-card{
+    background-color: $color4;
+    width:20rem;
+}
+.form-container{
+    width:85%
+}
+.t-f{
+    font-size: 0.75rem;
+}
+p{
+    margin: 0;
+}
+.border-color{
+    border-color: $color1;
+}
+
+:host ::ng-deep .p-inputtext:focus {
+    box-shadow: inset 0 0 0 0.15rem $color4 !important;
+  }

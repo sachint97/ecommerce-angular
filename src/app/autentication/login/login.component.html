@@ -1,0 +1,25 @@
+<div class="container flex flex-column justify-content-center align-items-center">
+    <div class="card flex flex-column align-items-center border-2 border-color border-900 border-round-2xl login-card">
+        <h2>Welcome back</h2>
+        <div class="form-container m-3">
+            <span class="p-float-label mb-4 p-inputtext-sm  w-12">
+                <input pInputText id="username" class="w-12 border-1 border-color border-900"/>
+                <label htmlFor="username">Username</label>
+            </span>
+            <span class="p-float-label mb-4 p-inputtext-sm  w-12 mb-3">
+                <input pInputText id="password" class="w-12 border-1 border-color border-900"/>
+                <label htmlFor="password">Password</label>
+            </span>
+            <div class="flex justify-content-between mb-3">
+                <div class="chec-box flex align-items-center">
+                    <p-checkbox formControlName="city" value="New York" inputId="ny"></p-checkbox>
+                    <label for="ny" class="ml-1 t-f">Remenber me</label>
+                </div>
+                <div class="ml-3"><a href="/user/forgot-password/" class="t-f underline cursor-pointer">Forgot password?</a></div>
+            </div>
+            <button pButton label="Login"  class="btn w-12 mb-3"></button>
+            <p class="t-f text-center mb-2">Not a member <a href="/user/signup"class="underline cursor-pointer">Signup.</a></p>
+            <p class="t-f text-center">Back to <a href="/" class="underline cursor-pointer">Home.</a></p>
+        </div>
+    </div>
+</div>

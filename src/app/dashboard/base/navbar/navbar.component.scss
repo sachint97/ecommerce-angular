@@ -1,0 +1,39 @@
+@import '../../../../styles.scss';
+:host ::ng-deep .p-menubar{
+    padding: 0px 0.5rem;
+    border-radius: 0px;
+    background-color: $color1;
+}
+.logo{
+    margin: 0px 0.2rem;
+    color:$color4;
+}
+.search{
+    height: 1.5rem;
+    padding: 2px 8px;
+}
+
+:host ::ng-deep .p-menuitem-icon,:host ::ng-deep .p-menuitem-text{
+    color:$color4 !important;
+}
+
+:host ::ng-deep  .p-menubar .p-menuitem-link {
+    border-color: $color4 !important;
+}
+
+:host ::ng-deep .p-menuitem-link:hover {
+    .p-menuitem-icon{
+        color:$color1 !important;
+        }
+    .p-menuitem-text{
+        color:$color1 !important;
+        }
+}
+:host ::ng-deep  .p-menubar .p-menuitem-link:not(.p-disabled):hover {
+    background-color: $color4 !important;
+}
+:host ::ng-deep .p-menubar .p-menuitem-link:focus {
+    box-shadow: inset 0 0 0 0.15rem $color4 !important;
+  }
+
+ 

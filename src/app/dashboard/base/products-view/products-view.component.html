@@ -1,3 +1,4 @@
+<app-carousel></app-carousel>
 <div class="card">
     <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
         [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
@@ -47,7 +48,7 @@
                     </div>
                     <div class="product-grid-item-bottom">
                         <span class="product-price">{{product.sale_price | currency:'USD'}}</span>
-                        <p-button icon="pi pi-cart-plus" [disabled]="product?.units===0"></p-button>
+                        <p-button icon="pi pi-cart-plus" [disabled]="product?.units===0" (click)="addToCart(product)"></p-button>
                     </div>
                 </div>
             </div>

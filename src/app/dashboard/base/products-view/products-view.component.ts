@@ -42,18 +42,6 @@ export class ProductsViewComponent {
         ];
     }
     
-    onSortChange(event: any) {
-        let value = event.value;
-
-        if (value.indexOf('!') === 0) {
-            this.sortOrder = -1;
-            this.sortField = value.substring(1, value.length);
-        }
-        else {
-            this.sortOrder = 1;
-            this.sortField = value;
-        }
-    }
 
     productPage(id:string){
       this.router.navigate(['product/',id])
@@ -66,5 +54,15 @@ export class ProductsViewComponent {
         return this.mediaUrl+'/images/default.png'
       }
     }
-    
+    addToCart(product:any){
+      console.log(product)
+      var data={
+        "cart_id": 1,
+        "product_id":product.id,
+         "qty":1
+      }
+      this.appServices.post('cart/add-product/',data).subscribe(resp=>{
+
+      })
+    }
 }

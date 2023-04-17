@@ -1,0 +1,56 @@
+<div class="container flex flex-column justify-content-center align-items-center">
+    <div class="card flex flex-column align-items-center border-2 border-color border-900 border-round-2xl signup-card ">
+        <h2>Create account</h2>
+        <div class="formgrid grid m-3 ">
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label p-inputtext-sm  w-12">
+                    <input pInputText id="firstName" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="firstName">First name</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12">
+                    <input pInputText id="lastname" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="lastname">Last name</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12">
+                    <input pInputText id="username" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="username">Username</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12">
+                    <input pInputText id="phonenumber" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="phonenumber">Phone</label>
+                </span>
+            </div>
+            <div class="field col-12 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12">
+                    <input pInputText id="email" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="email">email</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12">
+                    <input pInputText id="password" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="password">Password</label>
+                </span>
+            </div>
+            <div class="field col-12 md:col-6 mb-4">
+                <span class="p-float-label  p-inputtext-sm  w-12 ">
+                    <input pInputText id="password" class="w-12 border-1 border-color border-900" />
+                    <label htmlFor="password">Confirm password</label>
+                </span>
+            </div>
+            <button pButton label="Signup" class="btn w-12 mb-3" (click)="signup()"></button>
+            <div class="flex flex-column align-items-center justify-content-center w-12">
+                <p class="t-f text-center mb-2">Already have an account? <a href="/user/login"
+                    class="underline cursor-pointer">Login.</a></p>
+                <p class="t-f text-center">Back to <a href="/" class="underline cursor-pointer">Home.</a></p>
+            </div>
+            
+        </div>
+    </div>
+</div>

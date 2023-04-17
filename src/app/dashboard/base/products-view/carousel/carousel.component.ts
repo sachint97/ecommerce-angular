@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AppService } from '../../../../core/services/app.service';
-import { Product } from '../../../../core/models/model';
+import { AppService } from '../../../../../core/services/app.service';
+import { Product } from '../../../../../core/models/model';
 import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
 
 
 
@@ -17,7 +18,7 @@ export class CarouselComponent {
 	responsiveOptions;
 
   mediaUrl:string
-	constructor(private appService: AppService) {
+	constructor(private appService: AppService,private router:Router) {
     this.mediaUrl=environment.MEDIA_API_URL
 		this.responsiveOptions = [
       {
@@ -49,5 +50,19 @@ export class CarouselComponent {
       }else{
         return this.mediaUrl+'/images/default.png'
       }
+    }
+    productPage(id:string){
+      this.router.navigate(['product/',id])
+    }
+    addToCart(product:any){
+      console.log(product)
+      var data={
+        "cart_id": 1,
+        "product_id":product.id,
+         "qty":1
+      }
+      this.appService.post('cart/add-product/',data).subscribe(resp=>{
+
+      })
     }
 }

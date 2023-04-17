@@ -16,16 +16,18 @@ export class CartComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.apiService.get('cart/?username=testing').subscribe(resp=>{
-      this.cart=resp.data;
-      this.products=this.cart.cart_items;
-      console.log(resp)
-    })
+    this.getCartproducts()
     this.mediaUrl=environment.MEDIA_API_URL;
   }
 
+  getCartproducts(){
+    this.apiService.get('cart/?username=testing').subscribe(resp=>{
+      this.cart=resp.data;
+      this.products=this.cart.cart_items;
+    })
+  }
+
   getMediaUrl(product:any){
-    console.log(product)
     if (product.product_inventory.media[0] !=undefined){
       return this.mediaUrl+ product.product_inventory.media[0].img_url;
     }else{
@@ -34,11 +36,24 @@ export class CartComponent implements OnInit{
   }
   deleteProduct(product:any){
     console.log(product)
+    this.apiService.delete('cart/remove-product/testing/'+String(product.product_inventory.id)+'/').subscribe(resp=>{
+      this.getCartproducts()
+    })
   }
   getMaxUnits(product:any){
     return Number(product.product_inventory.quantity);
   }
   getProductQty(product:any){
     return product.product_inventory.quantity;
+  }
+  qtyChange(product:any){
+    const data={
+      "username":"testing",
+      "product_id":product.product_inventory.id,
+      "qty":product.quantity
+  }
+  this.apiService.put('cart/edit-qty/',data).subscribe(resp=>{
+    this.getCartproducts()
+  })
   }
 }

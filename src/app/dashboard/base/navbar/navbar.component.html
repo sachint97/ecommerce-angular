@@ -1,0 +1,11 @@
+<div class="card">
+    <p-menubar [model]="navItems" styleClass="flex">
+        <p-menuitem routerLink="/about" label="About" class="menu-items"></p-menuitem>
+        <ng-template pTemplate="start">
+            <a href="/" style="text-decoration: none;color: inherit;"><h2 class="logo">E-Bajar</h2></a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search" class="w-full search" />
+        </ng-template>
+    </p-menubar>
+</div>
