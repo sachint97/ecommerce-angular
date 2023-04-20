@@ -7,6 +7,7 @@ $color1: #393646;
 $color2: #4F4557;
 $color3: #6D5D6E;
 $color4: #F4EEE0;
+$danger: #e24c4c;
 
 
 *{
@@ -29,3 +30,11 @@ body{
 :host ::ng-deep .btn:focus {
     box-shadow: inset 0 0 0 0.15rem $color4 !important;
   }
+
+  .ng-invalid.ng-dirty{
+    border-color: $danger !important;
+}
+
+i.ng-invalid.ng-dirty{
+    color: $danger !important;
+}

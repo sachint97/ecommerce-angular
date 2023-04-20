@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Media, Product } from 'src/core/models/model';
 import { AppService } from 'src/core/services/app.service';
-import { PhotoService } from 'src/core/services/photo.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -17,7 +16,7 @@ export class ProductComponent implements OnInit {
   images: Media[];
   responsiveOptions: any[];
   qty:number=1;
-  constructor(private route: ActivatedRoute,private appService:AppService,private photoService: PhotoService) {
+  constructor(private route: ActivatedRoute,private appService:AppService) {
     this.mediaUrl=environment.MEDIA_API_URL
    }
 

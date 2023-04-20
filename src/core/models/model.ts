@@ -44,3 +44,10 @@ export interface Product{
     units: number,
     units_sold: number
 }
+
+export interface Token{
+    access_token:string
+    access_token_life_time_in_seconds:number
+    refresh_token:string
+    refresh_token_life_time_in_seconds:number
+}

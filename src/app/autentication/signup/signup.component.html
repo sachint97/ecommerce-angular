@@ -1,56 +1,59 @@
 <div class="container flex flex-column justify-content-center align-items-center">
     <div class="card flex flex-column align-items-center border-2 border-color border-900 border-round-2xl signup-card ">
         <h2>Create account</h2>
-        <div class="formgrid grid m-3 ">
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label p-inputtext-sm  w-12">
-                    <input pInputText id="firstName" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="firstName">First name</label>
-                </span>
-            </div>
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12">
-                    <input pInputText id="lastname" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="lastname">Last name</label>
-                </span>
-            </div>
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12">
-                    <input pInputText id="username" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="username">Username</label>
-                </span>
-            </div>
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12">
-                    <input pInputText id="phonenumber" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="phonenumber">Phone</label>
-                </span>
-            </div>
-            <div class="field col-12 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12">
-                    <input pInputText id="email" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="email">email</label>
-                </span>
-            </div>
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12">
-                    <input pInputText id="password" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="password">Password</label>
-                </span>
-            </div>
-            <div class="field col-12 md:col-6 mb-4">
-                <span class="p-float-label  p-inputtext-sm  w-12 ">
-                    <input pInputText id="password" class="w-12 border-1 border-color border-900" />
-                    <label htmlFor="password">Confirm password</label>
-                </span>
-            </div>
-            <button pButton label="Signup" class="btn w-12 mb-3" (click)="signup()"></button>
-            <div class="flex flex-column align-items-center justify-content-center w-12">
-                <p class="t-f text-center mb-2">Already have an account? <a href="/user/login"
-                    class="underline cursor-pointer">Login.</a></p>
-                <p class="t-f text-center">Back to <a href="/" class="underline cursor-pointer">Home.</a></p>
-            </div>
-            
-        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="signup()">
+            <div class="formgrid grid m-3 ">
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label p-inputtext-sm  w-12">
+                        <input pInputText id="firstName" class="w-12 border-1 border-color border-900" formControlName="first_name" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'first_name')"/>
+                        <label htmlFor="firstName">First name</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label  p-inputtext-sm  w-12">
+                        <input pInputText id="lastname" class="w-12 border-1 border-color border-900" formControlName="last_name" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'last_name')"/>
+                        <label htmlFor="lastname">Last name</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label  p-inputtext-sm  w-12">
+                        <input pInputText id="username" class="w-12 border-1 border-color border-900" formControlName="username" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'username')"/>
+                        <label htmlFor="username">Username</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label  p-inputtext-sm  w-12">
+                        <input pInputText id="phonenumber" class="w-12 border-1 border-color border-900" formControlName="phone"[ngClass]="checkValidity.checkInvalidTouched(registerForm,'phone')"/>
+                        <label htmlFor="phonenumber">Phone</label>
+                    </span>
+                </div>
+                <div class="field col-12 mb-4">
+                    <span class="p-float-label  p-inputtext-sm  w-12">
+                        <input pInputText id="email" class="w-12 border-1 border-color border-900" formControlName="email" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'email')"/>
+                        <label htmlFor="email">email</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label  p-inputtext-sm p-input-icon-right w-12">
+                        <i [class]="passwordView.icon" style="cursor:pointer" (mousedown)="passwordView.viewPassword()" (mouseup)="passwordView.hidePassword()" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'password')"></i>
+                        <input pInputText id="password" [type]="passwordView.viewPasswordFlag" class="w-12 border-1 border-color border-900" formControlName="password" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'password')"/>
+                        <label htmlFor="password">Password</label>
+                    </span>
+                </div>
+                <div class="field col-12 md:col-6 mb-4">
+                    <span class="p-float-label  p-inputtext-sm p-input-icon-right w-12 ">
+                        <i [class]="confirmPasswordView.icon" style="cursor:pointer" (mousedown)="confirmPasswordView.viewPassword()" (mouseup)="confirmPasswordView.hidePassword()" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'confirm_password')"></i>
+                        <input pInputText id="confirm-password" [type]="confirmPasswordView.viewPasswordFlag" class="w-12 border-1 border-color border-900" formControlName="confirm_password" [ngClass]="checkValidity.checkInvalidTouched(registerForm,'confirm_password')"/>
+                        <label htmlFor="confirm-password">Confirm password</label>
+                    </span>
+                </div>
+                <button pButton label="Signup" class="btn w-12 mb-3" type="submit"></button>
+                <div class="flex flex-column align-items-center justify-content-center w-12">
+                    <p class="t-f text-center mb-2">Already have an account? <a routerLink="/user/login"
+                        class="underline cursor-pointer">Login.</a></p>
+                        <p class="t-f text-center">Back to <a routerLink="/" class="underline cursor-pointer">Home.</a></p>
+                    </div>
+                </div>
+        </form>
     </div>
 </div>

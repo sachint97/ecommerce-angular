@@ -1,0 +1,1 @@
+export const refreshTokenURL = "user/token/refresh/";

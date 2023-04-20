@@ -16,7 +16,6 @@ import { AppService } from '../../core/services/app.service';
 import { ProductsViewComponent } from './base/products-view/products-view.component';
 import { ProductComponent } from './base/product/product.component';
 import {GalleriaModule} from 'primeng/galleria';
-import { PhotoService } from 'src/core/services/photo.service';
 import { DividerModule } from 'primeng/divider';
 import {TableModule} from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -57,6 +56,6 @@ import { MenubarModule } from 'primeng/menubar';
     MenubarModule
     
   ],
-  providers:[HttpClientModule,AppService,PhotoService]
+  providers:[HttpClientModule,AppService]
 })
 export class DashboardModule { }

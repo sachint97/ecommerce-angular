@@ -20,7 +20,21 @@ p{
 .border-color{
     border-color: $color1;
 }
-
 :host ::ng-deep .p-inputtext:focus {
     box-shadow: inset 0 0 0 0.15rem $color4 !important;
   }
+
+:host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight{
+    border-color: $color1;
+    background: $color1;
+}
+:host ::ng-deep .p-checkbox:not(.p-checkbox-disabled) {
+    .p-checkbox-box.p-highlight:hover{
+        border-color: $color1;
+        background: $color1;
+    }
+    .p-checkbox-box.p-focus{
+        box-shadow: inset 0 0 0 0 $color4 !important;
+        // border-color: $color1;
+    }
+}
